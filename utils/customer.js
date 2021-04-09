@@ -1,3 +1,26 @@
+/*
+After doing a little bit of research, I came up with this as a simple MySQL connection setup for pseudo-code
+
+const mysql      = require('mysql');
+const connection = mysql.createConnection({
+  host     : 'fake_host',
+  user     : 'admin',
+  password : 'password',
+  database : 'customer'
+});
+ 
+connection.connect();
+ 
+connection.query('SELECT 1 + 1 AS solution', function (error, results, fields) {
+  if (error) throw error;
+  console.log('The solution is: ', results[0].solution);
+});
+ 
+connection.end();
+
+*/
+
+// This is "pseudo-code" setup for a PostgreSQL setup
 const Pool = require('pg').Pool;
 const pool = new Pool({
     user: 'fake_user',

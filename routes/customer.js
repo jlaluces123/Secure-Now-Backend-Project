@@ -1,4 +1,10 @@
 const router = require('express').Router();
+const {
+    getUserById,
+    createCustomer,
+    updateCustomer,
+    deleteCustomer,
+} = require('../utils/customer');
 
 // API URL: /customer/...
 
@@ -6,26 +12,24 @@ router.get('/', (req, res) => {
     res.send('Sanity Check - Customer: OK');
 });
 
-router.get('/customer/:customerId', (req, res) => {
-    let customer = req.params.customerId;
-
-    // Helper Function to get customer
+router.get('/:customerId', (req, res) => {
+    console.log('Getting Customer', req.params.customerId);
+    getUserById(req, res);
 });
 
-router.post('/customer/create', (req, res) => {
-    // Helper Function to create customer
+router.post('/create', (req, res) => {
+    console.log('Creating Customer');
+    createCustomer(req, res);
 });
 
-router.put('/customer/:customerId', (req, res) => {
-    let customer = req.params.customerId;
-
-    // Helper Function to edit customer
+router.put('/:customerId', (req, res) => {
+    console.log('Updating Customer');
+    updateCustomer(req, res);
 });
 
-router.delete('/customer/:customerId', (req, res) => {
-    let customer = req.params.customerId;
-
-    // Helper Function to delete customer
+router.delete('/:customerId', (req, res) => {
+    console.log('Deleting Customer');
+    deleteCustomer(req, res);
 });
 
 module.exports = router;

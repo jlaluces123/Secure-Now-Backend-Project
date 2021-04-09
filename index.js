@@ -1,7 +1,10 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 const customerRouter = require('./routes/customer');
 const app = express();
 
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 app.use('/customer/', customerRouter);
 
 app.get('/', (req, res) => res.send('Sanity Check: OK'));
