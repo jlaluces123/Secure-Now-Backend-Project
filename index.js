@@ -1,6 +1,9 @@
 const express = require('express');
+const customerRouter = require('./routes/customer');
 
 const app = express();
+
+app.use('/customer/', customerRouter);
 
 app.get('/', (req, res) => res.send('Sanity Check: OK'));
 app.listen(3388, (err) => {
